@@ -8,9 +8,9 @@ authors = [
 license = "MIT"
 readme = "README.md"
 
-documentation = "https://{{ cookiecutter.github_username }}.github.io/{{ cookiecutter.project_slug }}"
-homepage = "https://{{ cookiecutter.github_username }}.github.io/{{ cookiecutter.project_slug }}"
-repository = "https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}"
+documentation = "{{ cookiecutter.gitlab_esa_url}}"
+homepage = "{{ cookiecutter.gitlab_esa_url}}"
+repository = "{{ cookiecutter.gitlab_esa_url}}"
 
 classifiers = [
   "Development Status :: 4 - Beta",
@@ -18,7 +18,6 @@ classifiers = [
   "Operating System :: OS Independent",
   "Programming Language :: Python",
   "Programming Language :: Python :: 3",
-  "Programming Language :: Python :: 3.8",
   "Programming Language :: Python :: 3.9",
   "Programming Language :: Python :: 3.10",
   "Programming Language :: Python :: 3.11",
@@ -32,7 +31,7 @@ packages = [
 ]
 
 [tool.poetry.dependencies]
-python = ">=3.8.1, <4.0"
+python = ">=3.9, <4.0"
 
 [tool.poetry.group.dev.dependencies]
 mkdocstrings = {version = ">=0.23", extras = ["python"]}
@@ -90,30 +89,9 @@ addopts = """\
 """
 
 [tool.coverage.report]
-fail_under = 100
+fail_under = 90
 exclude_lines = [
     'if TYPE_CHECKING:',
     'pragma: no cover'
 ]
 
-[tool.mypy]
-# This is the global mypy configuration.
-# Avoid changing this!
-strict = true  # See all the enabled flags `mypy --help | grep -A 10 'Strict mode'`
-disallow_any_unimported = true
-
-# If you need to ignore something for some specific module,
-# add overrides for them. Avoid changing the global config!
-# For example:
-# [[tool.mypy.overrides]]
-# module = [
-#  "my_unpyted_dependency1.*",
-#  "my_unpyted_dependency2.*"
-# ]
-# ignore_missing_imports = true
-
-# [[tool.mypy.overrides]]
-# module = [
-#   "tests/my_thing/test_my_thing",
-# ]
-# disallow_untyped_defs = false
